@@ -46,18 +46,27 @@ body {
     align-items: center;
 }
 
+/* 优化 LOGO 和公司名称的样式 */
 .logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    text-decoration: none;
-    height: 35px; /* 设置LOGO高度 */
     display: flex;
     align-items: center;
+    text-decoration: none;
+    font-weight: 700;
 }
 
 .logo img {
-    height: 100%;
+    height: 40px; /* 加大LOGO图片尺寸 */
+    margin-right: 10px;
+}
+
+.logo span {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+.logo:hover span {
+    color: var(--hover-color);
 }
 
 .nav-links ul {
@@ -307,6 +316,14 @@ section {
     }
     .nav-links ul li {
         margin: 5px 10px;
+    }
+    .logo {
+        flex-direction: column;
+        text-align: center;
+    }
+    .logo img {
+        margin-right: 0;
+        margin-bottom: 5px;
     }
     .headline {
         font-size: 2rem;
