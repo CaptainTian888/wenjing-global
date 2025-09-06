@@ -196,7 +196,7 @@ section {
     margin-bottom: 0.5rem;
 }
 
-/* 可定制材料板块 */
+/* 定制材料板块 */
 .materials-section {
     background: #fff;
 }
@@ -224,6 +224,49 @@ section {
 .material-item h3 {
     margin-bottom: 0;
 }
+
+/* 定制工艺板块 */
+.crafts-section {
+    background: #fdfdfd; /* 可以选择不同的背景色来区分 */
+}
+
+.craft-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    text-align: center;
+}
+
+.craft-item {
+    overflow: hidden;
+    border-radius: 10px;
+    background: var(--light-text-color);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding-bottom: 1rem; /* 留出文字空间 */
+}
+
+.craft-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+
+.craft-image {
+    width: 100%;
+    height: 200px; /* 固定高度，确保图片为正方形或统一尺寸 */
+    object-fit: cover; /* 裁剪图片以适应容器 */
+    transition: transform 0.3s ease;
+}
+
+.craft-item:hover .craft-image {
+    transform: scale(1.05); /* 鼠标悬停放大效果 */
+}
+
+.craft-item h3 {
+    margin-top: 1rem;
+    color: var(--primary-color);
+}
+
 
 /* 产品案例板块 */
 .cases-section {
@@ -268,6 +311,9 @@ section {
 }
 
 /* 关于我们 */
+.about-section {
+    background: #fff;
+}
 .about-section p {
     text-align: center;
     max-width: 800px;
@@ -276,7 +322,7 @@ section {
 
 /* 联系方式和表单 */
 .contact-section {
-    background: #fff;
+    background: var(--secondary-color);
 }
 
 .contact-info {
@@ -302,7 +348,7 @@ section {
     margin: 0 auto;
     text-align: center;
     padding: 2rem;
-    background: var(--secondary-color);
+    background: var(--light-text-color);
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
