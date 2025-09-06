@@ -13,6 +13,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth; /* 优化平滑滚动 */
 }
 
 body {
@@ -86,25 +87,6 @@ body {
     background: var(--hover-color);
 }
 
-/* 页面切换效果 */
-.page-section {
-    display: none;
-    animation: fadeIn 0.8s ease-in-out;
-}
-
-.page-section.active {
-    display: block;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
 /* 主视觉区 */
 .hero-section {
     background: url('https://imgbed.captainzeqi.com/file/1757128418286_pexels-tiger-lily-4483775.jpg') no-repeat center center/cover;
@@ -164,7 +146,7 @@ section {
     margin: 10px auto 0;
 }
 
-/* 服务介绍区 */
+/* 核心服务板块 */
 .services-section {
     background: var(--secondary-color);
 }
@@ -196,6 +178,35 @@ section {
 }
 
 .service-item h3 {
+    margin-bottom: 0.5rem;
+}
+
+/* 可定制材料板块 */
+.materials-section {
+    background: #fff;
+}
+
+.materials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    text-align: center;
+}
+
+.material-item {
+    padding: 2rem;
+    background: var(--secondary-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.material-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.material-item h3 {
     margin-bottom: 0.5rem;
 }
 
@@ -277,101 +288,6 @@ section {
     padding: 1.5rem 0;
 }
 
-/* 新页面通用样式 */
-.page-hero {
-    height: 40vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: var(--light-text-color);
-    position: relative;
-    background-size: cover;
-    background-position: center;
-}
-
-.page-hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-}
-
-.page-hero .container {
-    z-index: 1;
-}
-
-/* 服务详情页面样式 */
-.service-detail-section {
-    padding: 4rem 0;
-}
-
-.service-detail-content {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    margin-bottom: 3rem;
-}
-
-.service-detail-content.reverse-layout {
-    flex-direction: row-reverse;
-}
-
-.service-detail-content .service-image {
-    width: 50%;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.service-detail-content .text-content {
-    width: 50%;
-}
-
-.service-detail-content .text-content p {
-    margin-bottom: 1rem;
-    text-align: justify;
-}
-
-/* 案例展示页面样式 */
-.cases-section {
-    background: var(--secondary-color);
-}
-
-.case-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.case-item {
-    background: #fff;
-    padding: 1.5rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.case-item:hover {
-    transform: translateY(-5px);
-}
-
-.case-image {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-}
-
-.case-item h3 {
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
-}
-
 /* 响应式设计 */
 @media (max-width: 768px) {
     .navbar .container {
@@ -379,6 +295,11 @@ section {
     }
     .nav-links ul {
         margin-top: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .nav-links ul li {
+        margin: 5px 10px;
     }
     .headline {
         font-size: 2rem;
@@ -388,15 +309,5 @@ section {
     }
     .section-title {
         font-size: 2rem;
-    }
-    .service-detail-content {
-        flex-direction: column;
-    }
-    .service-detail-content.reverse-layout {
-        flex-direction: column;
-    }
-    .service-detail-content .service-image,
-    .service-detail-content .text-content {
-        width: 100%;
     }
 }
