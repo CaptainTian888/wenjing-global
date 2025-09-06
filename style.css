@@ -227,12 +227,12 @@ section {
 
 /* 定制工艺板块 */
 .crafts-section {
-    background: #fdfdfd; /* 可以选择不同的背景色来区分 */
+    background: #fdfdfd;
 }
 
 .craft-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 与产品案例保持一致 */
     gap: 1.5rem;
     text-align: center;
 }
@@ -243,7 +243,7 @@ section {
     background: var(--light-text-color);
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    padding-bottom: 1rem; /* 留出文字空间 */
+    padding-bottom: 1rem;
 }
 
 .craft-item:hover {
@@ -253,12 +253,22 @@ section {
 
 .craft-image {
     width: 100%;
-    height: 200px; /* 固定高度，确保图片为正方形或统一尺寸 */
+    padding-top: 100%; /* 正方形比例的关键，使高度等于宽度 */
+    position: relative; /* 允许内部图片绝对定位 */
+    overflow: hidden; /* 隐藏超出部分 */
+}
+
+.craft-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     object-fit: cover; /* 裁剪图片以适应容器 */
     transition: transform 0.3s ease;
 }
 
-.craft-item:hover .craft-image {
+.craft-item:hover .craft-image img {
     transform: scale(1.05); /* 鼠标悬停放大效果 */
 }
 
@@ -296,12 +306,22 @@ section {
 
 .case-image {
     width: 100%;
-    height: 200px; /* 固定高度，确保图片为正方形或统一尺寸 */
+    padding-top: 100%; /* 正方形比例的关键，使高度等于宽度 */
+    position: relative; /* 允许内部图片绝对定位 */
+    overflow: hidden; /* 隐藏超出部分 */
+}
+
+.case-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     object-fit: cover; /* 裁剪图片以适应容器 */
     transition: transform 0.3s ease;
 }
 
-.case-item:hover .case-image {
+.case-item:hover .case-image img {
     transform: scale(1.05); /* 鼠标悬停放大效果 */
 }
 
