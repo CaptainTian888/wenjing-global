@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const langBtn = document.getElementById('lang-btn');
-    const elementsToTranslate = document.querySelectorAll('[data-lang-zh]');
-
+    const elementsToTranslate = document.querySelectorAll('[data-lang-zh], [data-lang-en]');
+    
     // 检查本地存储是否有语言设置，如果没有，默认为中文
     let isEnglish = localStorage.getItem('isEnglish') === 'true';
 
@@ -9,16 +9,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const setLanguage = (isEnglish) => {
         elementsToTranslate.forEach(el => {
             const langKey = isEnglish ? 'data-lang-en' : 'data-lang-zh';
-            const translation = el.dataset[langKey.replace('data-lang-', '')];
+            const translation = el.getAttribute(langKey);
             if (translation) {
-                el.textContent = translation;
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    // 检查是否是输入框，如果是，修改placeholder
+                    el.placeholder = translation;
+                } else {
+                    el.textContent = translation;
+                }
             }
         });
         
         // 特别处理按钮本身的文本
-        const btnZh = langBtn.dataset.langZh;
-        const btnEn = langBtn.dataset.langEn;
-        langBtn.textContent = isEnglish ? btnZh : btnEn;
+        langBtn.textContent = isEnglish ? '中文 / EN' : 'EN / 中文';
     };
 
     // 初始化页面语言
