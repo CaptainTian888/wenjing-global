@@ -1,6 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     const langBtn = document.getElementById('lang-btn');
     const elementsToTranslate = document.querySelectorAll('[data-lang-zh], [data-lang-en]');
+    const titles = {
+        'zh': '稳金国际供应链',
+        'en': 'Wenjin Global Supply Chain'
+    };
     
     // 检查本地存储是否有语言设置，如果没有，默认为中文
     let isEnglish = localStorage.getItem('isEnglish') === 'true';
@@ -21,6 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // 特别处理按钮本身的文本
         langBtn.textContent = isEnglish ? '中文 / EN' : 'EN / 中文';
+
+        // 动态设置网站标题
+        document.title = isEnglish ? titles.en : titles.zh;
     };
 
     // 初始化页面语言
