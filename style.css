@@ -227,12 +227,12 @@ section {
 
 /* 定制工艺板块 */
 .crafts-section {
-    background: #fdfdfd;
+    background: var(--secondary-color);
 }
 
 .craft-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 与产品案例保持一致 */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1.5rem;
     text-align: center;
 }
@@ -253,23 +253,13 @@ section {
 
 .craft-image {
     width: 100%;
-    padding-top: 100%; /* 正方形比例的关键，使高度等于宽度 */
-    position: relative; /* 允许内部图片绝对定位 */
-    overflow: hidden; /* 隐藏超出部分 */
-}
-
-.craft-image img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* 裁剪图片以适应容器 */
+    height: 200px;
+    object-fit: cover;
     transition: transform 0.3s ease;
 }
 
-.craft-item:hover .craft-image img {
-    transform: scale(1.05); /* 鼠标悬停放大效果 */
+.craft-item:hover .craft-image {
+    transform: scale(1.05);
 }
 
 .craft-item h3 {
@@ -280,7 +270,7 @@ section {
 
 /* 产品案例板块 */
 .cases-section {
-    background: var(--secondary-color);
+    background: #fff; /* 将背景色调整为白色，以与定制工艺板块区分开 */
 }
 
 .case-grid {
@@ -306,22 +296,12 @@ section {
 
 .case-image {
     width: 100%;
-    padding-top: 100%; /* 正方形比例的关键，使高度等于宽度 */
-    position: relative; /* 允许内部图片绝对定位 */
-    overflow: hidden; /* 隐藏超出部分 */
-}
-
-.case-image img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    height: 200px; /* 固定高度，确保图片为正方形或统一尺寸 */
     object-fit: cover; /* 裁剪图片以适应容器 */
     transition: transform 0.3s ease;
 }
 
-.case-item:hover .case-image img {
+.case-item:hover .case-image {
     transform: scale(1.05); /* 鼠标悬停放大效果 */
 }
 
@@ -332,7 +312,7 @@ section {
 
 /* 关于我们 */
 .about-section {
-    background: #fff;
+    background: var(--secondary-color);
 }
 .about-section p {
     text-align: center;
@@ -342,7 +322,7 @@ section {
 
 /* 联系方式和表单 */
 .contact-section {
-    background: var(--secondary-color);
+    background: #fff;
 }
 
 .contact-info {
@@ -368,7 +348,7 @@ section {
     margin: 0 auto;
     text-align: center;
     padding: 2rem;
-    background: var(--light-text-color);
+    background: var(--secondary-color);
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
