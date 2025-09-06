@@ -68,7 +68,7 @@ body {
 
 /* 主视觉区 */
 .hero-section {
-    background: url('https://images.unsplash.com/photo-1587395029419-482d96c9d640?q=80&w=2940&auto=format&fit=crop') no-repeat center center/cover;
+    background: url('https://imgbed.captainzeqi.com/file/1757128418286_pexels-tiger-lily-4483775.jpg') no-repeat center center/cover; /* 更新了图片URL */
     height: 60vh;
     display: flex;
     justify-content: center;
