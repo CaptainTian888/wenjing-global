@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const translation = el.getAttribute(langKey);
             if (translation) {
                 if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-                    // 检查是否是输入框，如果是，修改placeholder
                     el.placeholder = translation;
                 } else {
                     el.textContent = translation;
