@@ -52,6 +52,26 @@ body {
     text-decoration: none;
 }
 
+.nav-links ul {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links ul li {
+    margin-right: 20px;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
 .lang-switch #lang-btn {
     background: var(--primary-color);
     color: var(--light-text-color);
@@ -66,9 +86,28 @@ body {
     background: var(--hover-color);
 }
 
+/* 页面切换效果 */
+.page-section {
+    display: none;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.page-section.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 /* 主视觉区 */
 .hero-section {
-    background: url('https://imgbed.captainzeqi.com/file/1757128418286_pexels-tiger-lily-4483775.jpg') no-repeat center center/cover; /* 更新了图片URL */
+    background: url('https://imgbed.captainzeqi.com/file/1757128418286_pexels-tiger-lily-4483775.jpg') no-repeat center center/cover;
     height: 60vh;
     display: flex;
     justify-content: center;
@@ -167,13 +206,14 @@ section {
     margin: 0 auto;
 }
 
-/* 联系方式 */
+/* 联系方式和表单 */
 .contact-section {
     background: var(--secondary-color);
 }
 
 .contact-info {
     text-align: center;
+    margin-bottom: 3rem;
 }
 
 .contact-info p {
@@ -189,6 +229,46 @@ section {
     margin-right: 10px;
 }
 
+.contact-form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.contact-form-container h3 {
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: inherit;
+}
+
+.contact-form button {
+    background: var(--primary-color);
+    color: var(--light-text-color);
+    border: none;
+    padding: 12px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background: var(--hover-color);
+}
+
 /* 页脚 */
 .footer {
     background: var(--primary-color);
@@ -197,17 +277,126 @@ section {
     padding: 1.5rem 0;
 }
 
+/* 新页面通用样式 */
+.page-hero {
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--light-text-color);
+    position: relative;
+    background-size: cover;
+    background-position: center;
+}
+
+.page-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.page-hero .container {
+    z-index: 1;
+}
+
+/* 服务详情页面样式 */
+.service-detail-section {
+    padding: 4rem 0;
+}
+
+.service-detail-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.service-detail-content.reverse-layout {
+    flex-direction: row-reverse;
+}
+
+.service-detail-content .service-image {
+    width: 50%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.service-detail-content .text-content {
+    width: 50%;
+}
+
+.service-detail-content .text-content p {
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+
+/* 案例展示页面样式 */
+.cases-section {
+    background: var(--secondary-color);
+}
+
+.case-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.case-item {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.case-item:hover {
+    transform: translateY(-5px);
+}
+
+.case-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.case-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
 /* 响应式设计 */
 @media (max-width: 768px) {
+    .navbar .container {
+        flex-direction: column;
+    }
+    .nav-links ul {
+        margin-top: 1rem;
+    }
     .headline {
         font-size: 2rem;
     }
-
     .sub-headline {
         font-size: 1rem;
     }
-
     .section-title {
         font-size: 2rem;
+    }
+    .service-detail-content {
+        flex-direction: column;
+    }
+    .service-detail-content.reverse-layout {
+        flex-direction: column;
+    }
+    .service-detail-content .service-image,
+    .service-detail-content .text-content {
+        width: 100%;
     }
 }
